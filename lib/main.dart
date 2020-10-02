@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:nutrisi_app/ui/shared/text_style.dart';
 
 void main() {
   runApp(MyApp());
@@ -65,20 +66,12 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
                 Text(
                   'Healthy',
-                  style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25.0),
+                  style: kTitleApp,
                 ),
                 SizedBox(width: 10.0),
                 Text(
                   'Food',
-                  style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25.0),
+                  style: kTitleApp,
                 ),
               ],
             ),
@@ -100,12 +93,18 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: MediaQuery.of(context).size.height - 300.0,
                     child: ListView(
                       children: <Widget>[
-                        _buildFoodItem('assets/plate1.png', 'Salmon Bowl', 'Rp.40.000'),
-                        _buildFoodItem('assets/plate2.png', 'Spring Bowl', 'Rp.30.000'),
-                        _buildFoodItem('assets/plate3.png', 'Steak Bowl', 'Rp.70.000'),
-                        _buildFoodItem('assets/plate4.png', 'Mie Bowl', 'Rp.20.000'),
-                        _buildFoodItem('assets/plate5.png', 'Tuna Bowl', 'Rp.100.000'),
-                        _buildFoodItem('assets/plate6.png', 'Kakap Bowl', 'Rp.150.000'),
+                        _buildFoodItem(
+                            'assets/plate1.png', 'Salmon Bowl', 'Rp.40.000'),
+                        _buildFoodItem(
+                            'assets/plate2.png', 'Spring Bowl', 'Rp.30.000'),
+                        _buildFoodItem(
+                            'assets/plate3.png', 'Steak Bowl', 'Rp.70.000'),
+                        _buildFoodItem(
+                            'assets/plate4.png', 'Mie Bowl', 'Rp.20.000'),
+                        _buildFoodItem(
+                            'assets/plate5.png', 'Tuna Bowl', 'Rp.100.000'),
+                        _buildFoodItem(
+                            'assets/plate6.png', 'Kakap Bowl', 'Rp.150.000'),
                       ],
                     ),
                   ),
@@ -143,17 +142,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: <Widget>[
                       Text(
                         foodName,
-                        style: TextStyle(
-                            fontFamily: 'Montserrat',
-                            fontSize: 17.0,
-                            fontWeight: FontWeight.bold),
+                        style: kFoodName,
                       ),
                       Text(
                         foodName,
-                        style: TextStyle(
-                            fontFamily: 'Montserrat',
-                            fontSize: 15.0,
-                            color: Colors.grey),
+                        style: kTitleApp,
                       )
                     ],
                   )
@@ -161,8 +154,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             IconButton(
-                icon: Icon(Icons.add), color: Colors.black, onPressed: () {}
-                )
+                icon: Icon(Icons.add), color: Colors.black, onPressed: () {})
           ],
         ),
       ),
