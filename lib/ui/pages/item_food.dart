@@ -12,7 +12,14 @@ class ItemFood extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => DetailsPage(
+                    heroTag: imgPath,
+                    foodName: foodName,
+                    foodPrice: price,
+                  )));
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
