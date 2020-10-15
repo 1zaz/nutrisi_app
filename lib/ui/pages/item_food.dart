@@ -13,12 +13,10 @@ class ItemFood extends StatelessWidget {
       padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
       child: InkWell(
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => DetailsPage(
-                    heroTag: imgPath,
-                    foodName: foodName,
-                    foodPrice: price,
-                  )));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => DetailFood(imgPath, foodName, price)));
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,7 +41,7 @@ class ItemFood extends StatelessWidget {
                         style: kFoodName,
                       ),
                       Text(
-                        foodName,
+                        price,
                         style: kTitleApp,
                       )
                     ],
