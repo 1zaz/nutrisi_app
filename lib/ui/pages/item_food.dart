@@ -62,8 +62,10 @@ class ItemFood extends StatelessWidget {
                 ],
               ),
             ),
-            IconButton(
-                icon: Icon(Icons.add), color: Colors.black, onPressed: () {})
+            Expanded(
+              child: IconButton(
+                  icon: Icon(Icons.add), color: Colors.black, onPressed: () {}),
+            )
           ],
         ),
       ),
