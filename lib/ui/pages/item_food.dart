@@ -13,10 +13,17 @@ class ItemFood extends StatelessWidget {
       padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
       child: InkWell(
         onTap: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => DetailFood(imgPath, foodName, price)));
+          Navigator.push(context, PageRouteBuilder(
+              fullscreenDialog: true,
+              transitionDuration: Duration(milliseconds: 1000),
+              pageBuilder: (context, animation, secondAnimation){
+                return DetailFood(imgPath, foodName, price);
+          }, transitionsBuilder: (context, animation, secondAnimation, child){
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          }));
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,7 +35,7 @@ class ItemFood extends StatelessWidget {
                       tag: imgPath,
                       child: Image(
                         image: AssetImage(imgPath),
-                        fit: BoxFit.cover,
+                        fit: BoxFit.contain,
                         height: 75.0,
                         width: 75.0,
                       )),
@@ -36,13 +43,19 @@ class ItemFood extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        foodName,
-                        style: kFoodName,
+                      Hero(
+                        tag: foodName,
+                        child: Material(
+                          color: Colors.transparent,
+                          child: Text(
+                            foodName,
+                            style: kFoodName,
+                          ),
+                        ),
                       ),
                       Text(
                         price,
-                        style: kTitleApp,
+                        style: kFoodSubtitle,
                       )
                     ],
                   )
